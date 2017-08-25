@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:th="www.thymeleaf.org"
+         xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini Twitter</title>
+    <th:block th:replace="base2 :: head"></th:block>
+</head>
+<body>
+<th:block th:replace="base2 :: nav"></th:block>
+
+<div class="container">
+    <br /><br /><br />
+    <h4>Posts</h4>
+
+    <table class="table table-striped">
+        <tr>
+            <!--  <th>Image</th>-->
+            <th>Post</th>
+            <th>Author</th>
+            <th>Date</th>
+
+
+        </tr>
+        <tr th:each="row : ${mesList}">
+            <td><img th:src="${row.photo}" /></td>
+            <td th:text="${row.content}"></td>
+            <td th:text="${row.postUser}"></td>
+            <td th:text="${row.getDate()}"></td>
+
+    </table>
+
+</div><!-- /.container -->
+
+<th:block th:replace="base2 :: footlinks"></th:block>
+</body>
+</html>
